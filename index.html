@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Calculadora de Júros Compostos</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="shortcut icon" href="calculator.ico" type="image/x-icon"/>
+
+	<script type="text/javascript">
+		
+		function calcJuros(){
+
+			var v1 = parseFloat(document.getElementById("valor1").value);
+            var v2 = parseFloat(document.getElementById("valor2").value);
+            var v3 = parseFloat(document.getElementById("valor3").value);
+            var v4 = parseFloat(document.getElementById("valor4").value);
+
+            var result = (v1 + Math.pow(1 + v3, v4) + v2 + Math.pow(1 + v3, v4) - 1) / v3;
+
+            document.getElementById("resultado").innerHTML = ("Total: R$" + result.toFixed(2));
+
+		}
+
+	</script>
+</head>
+<body>
+	<div id="calculo">
+		<img src="juros.jpg" id="img">
+
+		<p id="titulo">Calculadora de Júros Compostos</p>
+		<form id="Form1">
+	        <label for="valor1" class="val">Valor do investimento inicial:</label>
+	        <input id="valor1" name="VII" type="text"> <br><br>  
+
+	        <label for="valor2" class="val">Valor das aplicações mensais:</label>
+	        <input id="valor2" name="VAM" type="text"> <br><br>
+
+	        <label for="valor3" class="val">Taxa de Juros aplicada ao mês:</label>
+	        <input id="valor3" name="TJAM" type="text"> <br><br>
+
+	        <label for="valor4" class="val">Tempo de investimento (MESES):</label>
+	        <input id="valor4" name="TI" type="text"> <br><br>
+
+	        <input onclick="calcJuros()" id="btn" type="button" name="submit" value="Calcular">
+	    </form>
+	</div>
+
+	
+    <p id="rt">Resultado</p>
+	<p id="resultado"></p>
+</body>
+</html>
